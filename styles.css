@@ -1,0 +1,101 @@
+:root {
+    /*colors*/
+    --lightest:#e3f2fc;
+    --lighter: #c8e0f4;
+    --light: #a9c8e6;
+    --dark: #88aecf;
+    --darker: #587a9d;
+    --darkest: #2f4d6a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: var(--lightest);
+    font-family: "Love Ya Like A Sister", cursive;    
+    color: var(--darkest);
+    min-height: 100vh;
+    display: flex;
+     justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.bento-container {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  /* Creates a 4-column layout with equal width fractions */
+  grid-template-columns: repeat(4, 1fr); 
+  /* Defines row sizes automatically */
+  grid-auto-rows: minmax(180px, auto); 
+  gap: 20px; /* Uniform space between cards */
+}
+
+.bento-card {
+    border: 1px solid var(--darker);
+    border-radius:10px;
+    padding: 32px; /* Generous inside breathing room */
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes text to the bottom of the card */
+  gap: 12px;
+}
+.card-large {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--dark);
+}
+
+.card-tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.card-wide {
+  grid-column: span 3;
+}
+
+@media (max-width: 900px) {
+  .bento-container {
+    grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns */
+  }
+  .card-large {
+    grid-column: span 2;
+  }
+  .card-wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .bento-container {
+    grid-template-columns: 1fr; /* Pure single column stack */
+    grid-auto-rows: auto;
+  }
+
+  /* Reset all spans to 1 so cards stack perfectly */
+  .card-large, .card-tall, .card-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .card-content {
+    justify-content: flex-start; /* Optional: adjust alignment for reading flow on mobile */
+  }
+}
