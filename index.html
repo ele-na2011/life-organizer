@@ -8,19 +8,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Love+Ya+Like+A+Sister&family=Pixelify+Sans:wght@400..700&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
     </head>
     <body>
-  
 
   <main class="bento-container">
+    <header class="site-header">
+      <a class="brand" href="/">notion not notion <span>:0</span></a>
+      <nav class="site-nav">
+        <a href="resources.html">Resources</a>
+        <a href="subjects.html">School</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </header>
+
+    <section class="title-section" id="overview">
+      <p class="eyebrow" id="dateElement">[insert date here]</p>
+      <h1 id="timeElement">[insert time here]</h1>
+      <p class="title-copy">A tiny corner of the internet to make the many aspects of life more manageable.</p>
+    </section>
     <!-- Card 1: Large Feature (Spans 2 columns, 2 rows) -->
-    <div class="bento-card card-large">
+    <div class="bento-card card-large" id="plans">
       <div class="card-content">
-        <span class="tag">Analytics</span>
-        <h2>Track your progress in real-time</h2>
-        <p>Monitor metrics, track user engagement, and get automated daily insights.</p>
+        <span class="tag">Calendar</span>
+        <h2>Keep Track of Everything</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=qfyangpiggy%40gmail.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
 
-    <!-- Card 2: Tall Feature (Spans 1 column, 2 rows) -->
+   <!-- Card 2: Tall Feature (Spans 1 column, 2 rows) -->
     <div class="bento-card card-tall">
       <div class="card-content">
         <span class="tag">Security</span>
@@ -32,8 +45,8 @@
     <!-- Card 3: Standard (Spans 1 column, 1 row) -->
     <div class="bento-card card-standard-1">
       <div class="card-content">
-        <span class="tag">Integrations</span>
-        <h3>Connect Apps</h3>
+        <span class="tag">Apps</span>
+        
       </div>
     </div>
 
@@ -46,7 +59,7 @@
     </div>
 
     <!-- Card 5: Wide Feature (Spans 3 columns, 1 row) -->
-    <div class="bento-card card-wide">
+    <div class="bento-card card-wide" id="notes">
       <div class="card-content">
         <span class="tag">Performance</span>
         <h2>Optimized for lightning-fast speeds on all devices</h2>
@@ -61,6 +74,7 @@
         <h3>24/7 Help</h3>
       </div>
     </div>
+    
   </main>
 
 
