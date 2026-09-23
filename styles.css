@@ -1,11 +1,10 @@
 :root {
-    /*colors*/
-    --lightest:#e3f2fc;
-    --lighter: #c8e0f4;
-    --light: #a9c8e6;
-    --dark: #88aecf;
-    --darker: #587a9d;
-    --darkest: #2f4d6a;
+  --lightest: #e3f2fc;
+  --lighter: #c8e0f4;
+  --light: #a9c8e6;
+  --dark: #88aecf;
+  --darker: #587a9d;
+  --darkest: #2f4d6a;
 }
 
 * {
@@ -15,31 +14,100 @@
 }
 
 body {
-    background-color: var(--lightest);
-    font-family: "Love Ya Like A Sister", cursive;    
-    color: var(--darkest);
-    min-height: 100vh;
-    display: flex;
-     justify-content: center;
-    align-items: center;
-    padding: 2rem;
+  background-color: var(--lightest);
+  color: var(--darkest);
+  font-family: "Love Ya Like A Sister", cursive;
+  min-height: 100vh;
+  padding: 36px 24px 64px;
 }
 
 .bento-container {
   display: grid;
   width: 100%;
   max-width: 1200px;
-  /* Creates a 4-column layout with equal width fractions */
-  grid-template-columns: repeat(4, 1fr); 
-  /* Defines row sizes automatically */
-  grid-auto-rows: minmax(180px, auto); 
-  gap: 20px; /* Uniform space between cards */
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 20px;
+}
+
+.site-header {
+  grid-column: 1 / -1;
+  min-height: 60px;
+  padding: 0 28px;
+  border-radius: 14px;
+  background-color: var(--darkest);
+  color: var(--lightest);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand,
+.site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--light);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 1rem;
+}
+
+.site-nav a {
+  opacity: 0.78;
+  transition: opacity 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  opacity: 1;
+}
+
+.title-section {
+  grid-column: 1 / -1;
+  padding: 24px 8px 12px;
+}
+
+.eyebrow {
+  color: var(--darker);
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.title-section h1 {
+  max-width: 720px;
+  font-size: clamp(2.6rem, 6vw, 5.25rem);
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.title-copy {
+  max-width: 480px;
+  margin-top: 16px;
+  color: var(--darker);
+  font-size: 1.2rem;
 }
 
 .bento-card {
-    border: 1px solid var(--darker);
-    border-radius:10px;
-    padding: 32px; /* Generous inside breathing room */
+  border: 1px solid var(--darker);
+  border-radius: 10px;
+  padding: 32px;
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease, border-color 0.3s ease;
@@ -49,13 +117,24 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Pushes text to the bottom of the card */
+  justify-content: flex-end;
   gap: 12px;
 }
+
 .card-large {
   grid-column: span 2;
-  grid-row: span 2;
+  grid-row: span 4;
   background: var(--dark);
+}
+
+.card-large .card-content {
+  justify-content: flex-start;
+}
+
+.card-large iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
 }
 
 .card-tall {
@@ -69,11 +148,10 @@ body {
 
 @media (max-width: 900px) {
   .bento-container {
-    grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns */
+    grid-template-columns: repeat(2, 1fr);
   }
-  .card-large {
-    grid-column: span 2;
-  }
+
+  .card-large,
   .card-wide {
     grid-column: span 2;
   }
@@ -81,21 +159,34 @@ body {
 
 @media (max-width: 600px) {
   body {
-    padding: 1rem;
+    padding: 16px 14px 40px;
+  }
+
+  .site-header {
+    min-height: auto;
+    padding: 18px 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .bento-container {
-    grid-template-columns: 1fr; /* Pure single column stack */
+    grid-template-columns: 1fr;
     grid-auto-rows: auto;
   }
 
-  /* Reset all spans to 1 so cards stack perfectly */
-  .card-large, .card-tall, .card-wide {
+  .card-large,
+  .card-tall,
+  .card-wide {
     grid-column: span 1;
     grid-row: span 1;
   }
-  
+
   .card-content {
-    justify-content: flex-start; /* Optional: adjust alignment for reading flow on mobile */
+    justify-content: flex-start;
   }
 }
